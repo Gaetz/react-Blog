@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
+
     componentDidMount() {
         this.props.fetchPosts();
     }
@@ -14,7 +15,7 @@ class PostsIndex extends Component {
         return _.map(this.props.posts, post => {
             return(
                 <li className='list-group-item' key={post.id}>
-                    {post.title}
+                    <Link to={`posts/${post.id}`}>{post.title}</Link>
                 </li>
             );
         });
